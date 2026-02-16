@@ -42,12 +42,10 @@
 - Рекурсия большой глублины вложенности влияет на аварийное завершение работы (Python до 3000 вызовов).
 - Бесконенчые циклы:
 
-def infinite_loop():
+      def infinite_loop():
+          while True:
+              pass
+      Вызываем бесконечный цикл
+      infinite_loop()
 
-    while True:
 
-        pass
-
-Вызываем бесконечный цикл
-
-infinite_loop()
