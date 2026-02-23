@@ -86,7 +86,7 @@
 
     ![alt text](Photo/ws2-ip.png)
 
-- Файлы в /etc/netplan/ по соображениям безопасности должны иметь строго определенные права (обычно 600 или 644). Используем ``sudo chmod 600 /etc/netplan/00-installer-config.yaml`` чтобы после выполнить команду ``sudo netplan apply``. Ниже представлен вывод команды для ws-1 7 ws-2:
+- Файлы в /etc/netplan/ по соображениям безопасности должны иметь строго определенные права (обычно 600 или 644). Используем ``sudo chmod 600 /etc/netplan/00-installer-config.yaml`` чтобы после выполнить команду ``sudo netplan apply``. Ниже представлен вывод команды для ws-1 & ws-2:
 
     ![alt text](Photo/1netplan-app.png)
 
