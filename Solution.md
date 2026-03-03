@@ -333,7 +333,7 @@ iptables -A OUTPUT -p icmp --icmp-type echo-reply -j ACCEPT
 iptables -A OUTPUT -p icmp --icmp-type echo-reply -j DROP
 ```
 
-** Как работают правила в iptables **
+**Как работают правила в iptables**
 
 Важно! В iptables правила применяются последовательно сверху вниз. Первое совпавшее правило определяет действие .
 
