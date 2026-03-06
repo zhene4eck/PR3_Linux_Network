@@ -410,4 +410,5 @@ firewall.sh ws2
   ![alt text](Photo/nmap-2.png)
 
 ✔ хост работает на машине 2
+
 ✔ просто ping заблокирован firewall на 1 машине.
