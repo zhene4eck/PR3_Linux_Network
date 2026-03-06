@@ -221,8 +221,8 @@ iptables -X
 # (для пунктов 4 и 5)
 
 # 3) Открываем порт 22 (ssh) и порт 80 (http)
-iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT
-iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT // открыли порт на вход
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT // открыли порт на выход
 iptables -A OUTPUT -p tcp --sport 80 -j ACCEPT
 iptables -A INPUT -p tcp --dport 80 -j ACCEPT
 
