@@ -421,25 +421,25 @@ firewall.sh ws2
 
 - содержанием файла etc/netplan/00-installer-config.yaml
 
-ws11
+``ws11``
 
-  ![alt text]()
+  ![alt text](Photo/ws11.png)
 
-ws21
+``ws21``
 
-  ![alt text]()
+  ![alt text](Photo/ws21.png)
 
-ws22
+``ws22``
 
-  ![alt text]()
+  ![alt text](Photo/ws22.png)
 
-r1
+``r1``
 
-  ![alt text]()
+  ![alt text](Photo/r1.png)
 
-r2
+``r2``
 
-  ![alt text]()
+  ![alt text](Photo/r2.png)
 
 - После перезапуска сетей проверяем ``ip -4`` адреса машин.
 
@@ -452,3 +452,5 @@ r2
 - Пингуем r1 с ws11.
 
   ![alt text]()
+
+
