@@ -471,11 +471,11 @@ firewall.sh ws2
 
 - ``sysctl -w net.ipv4.ip_forward=1`` включаем переадрессацию (будет работать после перезакгрузки систьемы). ``ip_forward=1`` без его включения роутер будет просто отбрасывать пакеты, а не пересылать их. Где `-w` – записать, `1` – включить, `net.ipv4.ip_forward` - параметр ядра, отвечающий за пересылку IPv4 пакетов между интерфейсами.
 
-- ``r1``
+``r1``
 
   ![alt text](Photo/r2-forward-1.png)
 
-- ``r2``
+``r2``
 
   ![alt text](Photo/r1-forward-1.png)
 
@@ -493,30 +493,41 @@ firewall.sh ws2
 
 Для каждой машины я устанавливаю default к роутеру.
 
-- `ws11` -> `r1`
+`ws11` -> `r1`
 
   ![alt text](Photo/ws11-def.png)
 
-- `ws21` -> `r2`
+`ws21` -> `r2`
 
   ![alt text](Photo/ws21-def.png)
 
-- `ws22` -> `r2`
+`ws22` -> `r2`
 
   ![alt text](Photo/ws22-def.png)
 
 - Вызов `ip r`
 
-- `ws11`
+`ws11`
 
   ![alt text](Photo/ws11-ipr.png)
 
-- `ws21`
+`ws21`
 
   ![alt text](Photo/ws21-ipr.png)
 
-- `ws22`
+`ws22`
 
   ![alt text](Photo/ws22-ipr.png) 
 
-###
+- пингую с `ws11` роутер `r2`
+
+  ![alt text](Photo/пинг-ws11-r2.png) 
+
+- На `r2` проверяем, что пинг доходит.
+
+  ![alt text](Photo/пинг-на-r2.png) 
+  
+
+### 5.4. Добавление статических маршрутов
+
+
