@@ -481,11 +481,42 @@ firewall.sh ws2
 
 - В файле `/etc/sysctl.conf` добавляю строку `net.ipv4.ip_forward = 1`. Так мы включаем постоянную переадрессацию.
 
-- ``r1``
+``r1``
 
   ![alt text](Photo/r1-conf.png)
 
-- ``r2``
+``r2``
 
   ![alt text](Photo/r2-conf.png)
 
+### 5.3. Установка маршрута по умолчанию
+
+Для каждой машины я устанавливаю default к роутеру.
+
+- `ws11` -> `r1`
+
+  ![alt text](Photo/ws11-def.png)
+
+- `ws21` -> `r2`
+
+  ![alt text](Photo/ws21-def.png)
+
+- `ws22` -> `r2`
+
+  ![alt text](Photo/ws22-def.png)
+
+- Вызов `ip r`
+
+- `ws11`
+
+  ![alt text]()
+
+- `ws21`
+
+  ![alt text]()
+
+- `ws22`
+
+  ![alt text]() 
+
+###
