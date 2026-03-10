@@ -419,7 +419,7 @@ firewall.sh ws2
 
 ### 5.1. Настройка адресов машин
 
-- содержанием файла etc/netplan/00-installer-config.yaml
+- содержанием файла ``etc/netplan/00-installer-config.yaml`` + перезапуск сети
 
 ``ws11``
 
@@ -441,16 +441,28 @@ firewall.sh ws2
 
   ![alt text](Photo/r2.png)
 
-- После перезапуска сетей проверяем ``ip -4`` адреса машин.
+- После перезапуска сетей проверяем ``ip -4`` адреса машин
 
-  ![alt text]()
+``r2``
+
+  ![alt text](Photo/r2-ip-4-a.png)
 
 - Пингуем ws22 с ws21.
 
-  ![alt text]()
+``ws21``
+
+  ![alt text](Photo/w22-w21.png)
+
+``ws22``
+
+  ![alt text](Photo/w21-w22.png)
 
 - Пингуем r1 с ws11.
 
-  ![alt text]()
+``r1``
 
+  ![alt text](Photo/ws11-r1.png)
 
+``ws11``
+
+  ![alt text](Photo/r1-ws11.png)
