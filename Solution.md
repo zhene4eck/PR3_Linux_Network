@@ -466,3 +466,5 @@ firewall.sh ws2
 ``ws11``
 
   ![alt text](Photo/r1-ws11.png)
+
+### 5.2. Включение переадресации IP-адресов
