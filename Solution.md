@@ -509,14 +509,14 @@ firewall.sh ws2
 
 - `ws11`
 
-  ![alt text]()
+  ![alt text](Photo/ws11-ipr.png)
 
 - `ws21`
 
-  ![alt text]()
+  ![alt text](Photo/ws21-ipr.png)
 
 - `ws22`
 
-  ![alt text]() 
+  ![alt text](Photo/ws22-ipr.png) 
 
 ###
