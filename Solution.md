@@ -616,3 +616,43 @@ firewall.sh ws2
 - Вызов и вывод команд на `ws11` `sudo ping -c 1 10.30.0.111`
   ![alt text](Photo/5.6ws11.png)  
 
+## Задача 6. Динамическая настройка IP с помощью DHCP
+
+```
+subnet 10.100.0.0 netmask 255.255.0.0 {}
+
+subnet 10.20.0.0 netmask 255.255.255.192 //Адрес внутренней сети (10.20.0.0/26 - получаем побитово)
+{
+    range 10.20.0.2 10.20.0.50; //Диапазон выдачи IP
+    option routers 10.20.0.1; //Адрес маршрутизатора (gateway)
+    option domain-name-servers 10.20.0.1; //DNS-сервер
+}
+```
+
+- Сожержание файла `/etc/dhcp/dhcpd.conf` (добалено вручную описнаие выше в новый файл)
+
+  ![alt text](Photo/dhcp-conf.png)
+
+- Меняем файл `/etc/resolv.conf` (прописано nameserver 8.8.8.8)
+
+  ![alt text](Photo/resolv.png)
+
+- Перезагружаю службу DHCP командой `sudo systemctl restart isc-dhcp-server`. Была проблема с перезагрузкой DHCP сервера - он вообще не установлен. Командой `sudo apt install isc-dhcp-server` устанавливаем. А также через `sudo nano /etc/hosts` добавляю строку (этот адрес отвечает за имя компьютера):
+```
+127.0.0.1 localhost
+127.0.1.1 r2
+```
+- На ws21 меняем конфигурацию сетевого интерфейса (коментируем или уаляем поле addresses, а также для dhcp4 устанавливаем true). Так как мы работаем с адресом маршрутизатора, мы включаем dhcp4.
+
+  ![alt text](Photo/dhcp-restart.png)
+
+- Перезагрузка машины ws21 через `reboot` и вывод `ip a`
+
+  ![alt text](Photo/reboot-ws21.png)
+
+  ![alt text](Photo/dhcp-ip-a.png)
+
+- Пингую ws22 с ws21
+
+  ![alt text](ping-ws22-c-ws21.png)
+
