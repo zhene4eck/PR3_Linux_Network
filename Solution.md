@@ -588,11 +588,11 @@ firewall.sh ws2
 
 `r1`
 
-  ![alt text](Photo/5.5 r1.png)
+  ![alt text](Photo/5.5r1.png)
 
 `ws11`
 
-  ![alt text](Photo/5.5 ws11.png)
+  ![alt text](Photo/5.5ws11.png)
 
 - Мы запускаем tcpdump на r1, потому что он первый маршрутизатор на пути пакетов от ws11.
 
