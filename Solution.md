@@ -810,3 +810,35 @@ SNAT позволяет всем компьютерам выходить в ин
 Чтобы это избежать, мы выдаем доступ для трафика с 10.10.х `iptables -A FORWARD -p tcp --dport 80 -j ACCEPT` - выдает пересылку `HTTP` через порт (`HTTP` работает именно через `TCP`) на порт `80` 
 
   ![alt text](Photo/7-DNAT-WORK.png)
+
+## Задача 8. Дополнительно. Знакомство с SSH Tunnels
+
+```
+Устанавливаю SSH-сервер sudo apt install openssh-server на r2 & ws22
+```
+- добавлено правило:
+
+  ![alt text](Photo/8-port22-firewall.png)
+
+- Настройка `apache2` на `ws22` в файле `/etc/apache2/ports.conf`
+
+  ![alt text](Photo/8-22HOST.png)
+
+- На машине `ws22` создаю локальный `SSH-туннель` командой `ss -L 8080:localhost:80 user@10.20.0.20`
+
+Порт 8080 уже используется, поэтому мы находим кем и убиваем через `PID`
+
+  ![alt text](Photo/8-порт-используется.png)
+
+Пробуем устанвоить туннель снова и видим, что он установился `Last login: ...`. Но при `telnet` `ws22` отклонил соединение на порт ``80``. Скорее всего `Apache` слушает только `localhost` - `Listen localhost:80`. Поменяем на `80`
+
+  ![alt text](Photo/8-grep.png)
+
+Тут мы видим, что порт с `ws21` случается на машине `ws22. Пробуем снова поключиться через `ssh`, после чего в новом терминале `option >` запускаем `telnet`
+
+  ![alt text](Photo/8SSH.png)
+
+  ![alt text](Photo/8-TELNET.png)
+
+SSH
+
