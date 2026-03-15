@@ -816,14 +816,20 @@ SNAT позволяет всем компьютерам выходить в ин
 ```
 Устанавливаю SSH-сервер sudo apt install openssh-server на r2 & ws22
 ```
-- добавлено правило:
-
-  ![alt text](Photo/8-port22-firewall.png)
 
 - Настройка `apache2` на `ws22` в файле `/etc/apache2/ports.conf`
 
   ![alt text](Photo/8-22HOST.png)
 
+- Добавление `Local TCP forwarding с ws21 до ws22` - `iptables -A FORWARD -p tcp -s 10.20.0.10 -d 10.20.0.20 --dport 22 -j ACCEPT` в `firewall` + разрешаем ответный трафик `iptables -A FORWARD -m state --state ESTABLISHED,RELATED -j ACCEPT`
+
+  ![alt text](Photo/8-LOCAL-TCP.png)
+
+- Добавление `Remote TCP forwarding c ws11 до ws22` - `iptables -A FORWARD -p tcp -s 10.10.0.2 -d 10.20.0.20 --dport 22 -j ACCEPT`  в `firewall`
+
+  ![alt text](Photo/8-REMOTE-TCP.png)
+  
+```
 - На машине `ws22` создаю локальный `SSH-туннель` командой `ss -L 8080:localhost:80 user@10.20.0.20`
 
 Порт 8080 уже используется, поэтому мы находим кем и убиваем через `PID`
@@ -839,6 +845,12 @@ SNAT позволяет всем компьютерам выходить в ин
   ![alt text](Photo/8SSH.png)
 
   ![alt text](Photo/8-TELNET.png)
+```
 
-SSH
+| На `ws21` - `ssh -L 8080:localhost:80 user@10.20.0.20` | ![alt text](Photo/8-SSH-L.png) |
+| :---: | :---: |
+| На втором терминале `ws21` - `telnet 127.0.0.1 8080` | ![alt text](Photo/8-telnet-SSH-L.png) |
+|  |  |
+| На `ws11` - `ssh -R 8080:localhost:80 user@10.20.0.20` | ![alt text](Photo/8-SSH-R.png) |
+| На втором терминале `ws11` - `telnet 127.0.0.1 8080` | ![alt text](Photo/) |
 
