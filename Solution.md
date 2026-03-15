@@ -850,7 +850,9 @@ SNAT позволяет всем компьютерам выходить в ин
 | На `ws21` - `ssh -L 8080:localhost:80 user@10.20.0.20` | ![alt text](Photo/8-SSH-L.png) |
 | :---: | :---: |
 | На втором терминале `ws21` - `telnet 127.0.0.1 8080` | ![alt text](Photo/8-telnet-SSH-L.png) |
-|  |  |
-| На `ws11` - `ssh -R 8080:localhost:80 user@10.20.0.20` | ![alt text](Photo/8-SSH-R.png) |
-| На втором терминале `ws11` - `telnet 127.0.0.1 8080` | ![alt text](Photo/) |
 
+| :---: | :---: |
+| На `ws11` - `ssh -R 8080:localhost:80 user@10.100.0.12` - идем к `r2`, так как настройки его fw мешают нам прийти напрямую | ![alt text](Photo/2.png) |
+| На `ws11` от лица `r2` связыываемся с `ws22` - `ssh 10.20.0.20` | ![alt text](Photo/3.png) |
+| На `ws11` от лица `ws22` связыываемся с `ws11`, получая цикл связи - `ssh -R 8080: localhost:80 user@10.10.0.2` | ![alt text](Photo/4.png) |
+| После чего на втором терминале `ws21` - `telnet 127.0.0.1 8080` | ![alt text](Photo/5.png) |
